@@ -1,7 +1,8 @@
 # Video Broadcaster with AI Background Customization 
 
 ![Demo Interface]
-![image](https://github.com/user-attachments/assets/f304a899-7353-4e5c-848c-ce918e6164bb)
+![image](https://github.com/user-attachments/assets/9c6de5bc-d00a-4aea-9439-2abb055131bc)
+
 
 
 A sophisticated real-time video processing system using YOLOv8 segmentation for professional background manipulation. Now with enhanced UI/UX and performance optimizations.
