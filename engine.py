@@ -4,7 +4,7 @@ import numpy as np
 import torch
 
 class CustomSegmentationWithYolo():
-    def __init__(self, erode_size=5, erode_intensity=2): #Sementatic Segementation
+    def __init__(self, erode_size=5, erode_intensity=2):
          self.model = YOLO('yolov8m-seg.pt')
          self.erode_size = erode_size
          self.erode_intensity = erode_intensity

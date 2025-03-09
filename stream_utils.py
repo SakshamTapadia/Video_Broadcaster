@@ -6,6 +6,7 @@ import torch
 import pyvirtualcam
 from engine import CustomSegmentationWithYolo
 
+
 class Streaming(CustomSegmentationWithYolo):
     def __init__(self, in_source=None, out_source=None, fps=None, blur_strength=None, cam_fps=15, background="none"):
         super().__init__(erode_size=5, erode_intensity=2)

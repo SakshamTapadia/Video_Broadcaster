@@ -5,14 +5,10 @@ from fastapi.responses import JSONResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
 import threading
 from stream_utils import Streaming
-import os
-
-# Get absolute path to static directory
-static_dir = os.path.join(os.path.dirname(__file__), "static")
 
 app = FastAPI()
 
-app.mount("/static", StaticFiles(directory=static_dir), name="static")
+app.mount("/static", StaticFiles(directory="static"), name="static")
 
 stream_thread = None
 
@@ -41,8 +37,8 @@ def start_stream(
     if streaming.running:
         return JSONResponse(content={"message": "Stream already running"}, status_code=400)
 
-    if fps < 1 or fps > 1000:
-        return JSONResponse(content={"message": "Invalid FPS value (1-1000)"}, status_code=400)
+    if fps < 1 or fps > 60:
+        return JSONResponse(content={"message": "Invalid FPS value (1-60)"}, status_code=400)
 
     stream_thread = threading.Thread(
         target=streaming.stream_video, args=()
@@ -61,6 +57,7 @@ def stop_stream():
 def devices():
     return streaming.list_available_devices()
 
+
 if __name__ == "__main__":
 
-    uvicorn.run(app, port=8000)
+    uvicorn.run(app, host="0.0.0.0", port=8000)
