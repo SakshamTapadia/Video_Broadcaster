@@ -1,6 +1,3 @@
-Here's a comprehensive README.md for your project:
-
-```markdown
 # AI Video Background Customization System
 
 ![Demo Interface]
